@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2</title>
+    <style type="text/css">
+        #divResult {
+            border: solid 1px black;
+            width: 340px;
+            height: 50px;
+            padding: 10px;
+            background-color: yellow;
+        }
+
+        input {
+            font-family: calibri;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        td {
+            font-family: calibri;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script language="javascript" type="text/javascript">
+        function removeDigits() {
+            let inputData = "";
+            let objDataTextBox;
+            let oneStringData = "";
+            let objResultBox;
+            let characterIndex = 0;
+            let numOfCharacters = 0;
+            let template = "1234567890";
+            let numberOfDigitsFound = 0;
+            let result = new String("");
+            objDataTextBox = document.getElementById("txtData");
+            objResultBox = document.getElementById("divResult");
+            inputData = objDataTextBox.value;
+            numOfCharacters = inputData.length;
+            for (characterIndex = 0; characterIndex < numOfCharacters; characterIndex++) {
+                oneStringData = inputData.charAt(characterIndex);
+                if (template.indexOf(oneStringData) === -1) { //check that char is not a digit
+                    result =  result += oneStringData;;
+                }//if
+            }//if
+            objResultBox.innerHTML = "Before: <u>" + inputData + "</u> <br>After: <u>" +
+                result + "</u>"
+        }//function
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="2" align="center">
+                <div id="divResult">&nbsp;</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Test Data</td>
+            <td><input type="text" value="web" maxlength="20" name="txtData" id="txtData" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+                <input type="button" value="Remove the digits" name="btnProcess" id="btnProcess"
+                    onclick="removeDigits();" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
